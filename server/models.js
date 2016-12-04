@@ -4,29 +4,29 @@ const User = require('../database/db').User
 module.exports = {
   users: {
     get: (data) => {
-      console.log("within model GET", data)
+      console.log('within model GET', data)
       User.findOne({
         username: data.username,
         password: data.password
-      },(err, user) => {
-        console.log("USER: ", user)
+      }, (err, user) => {
+        console.log('USER: ', user)
         if (err) {
-          console.log("ERROR in GET MODEL", err)
+          console.log('ERROR in GET MODEL', err)
         }
-          console.log("line 21", user)
-          return user
+        console.log('line 21', user)
+        return user
       })
     },
     post: (req, res) => {
       console.log(req, '*****')
-      console.log("within model POST", req.body)
+      console.log('within model POST', req.body)
       User.create({
         username: req.username,
         password: req.password
-        }, (err, user) => {
+      }, (err, user) => {
         if (err) {
-                console.log("Server-side POST error: ", err)
-            }
+          console.log('Server-side POST error: ', err)
+        }
       })
     }
   },

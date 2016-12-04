@@ -4,16 +4,15 @@ const models = require('./models')
 module.exports = {
   users: {
     get: (req, res) => {
-      console.log("withincontroller GET***", req.query)
-      console.log("withincontroller GET", req.body)
-            models.users.get(req.query)
-            res.send(req.query)
-
+      console.log('withincontroller GET***', req.query)
+      console.log('withincontroller GET', req.body)
+      models.users.get(req.query)
+      res.send(req.query)
     },
     post: (req, res) => {
-      console.log("withincontroller post", req.body)
-            models.users.post(req.body)
-            res.send(req.body)
+      console.log('withincontroller post', req.body)
+      models.users.post(req.body)
+      res.send(req.body)
     }
   },
   favorites: {
