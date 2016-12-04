@@ -17,15 +17,15 @@ const userSchema = new Schema({
     hometown: String,
     interests: String
   }],
-  favoites: [{
+  favorites: [{
     yelpId: String,
     name: String,
-    catergories: [String],
+    categories: [String],
     address: String,
     phone: String,
     rating: Number,
     image_url: String,
-    bussinessUrl: String,
+    businessUrl: String,
     lat: Number,
     long: Number
   }]

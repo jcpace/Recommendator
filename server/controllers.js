@@ -5,14 +5,16 @@ module.exports = {
     // Josh's endpoint is user
   auth: {
     get: (req, res) => {
-            models.auth.get()
-            .then(data=> {
-              res.send()
-            })
+      console.log("withincontroller GET***", req.query)
+      console.log("withincontroller GET", req.body)
+            models.get(req.query)
+            res.send(req.query)
+
     },
     post: (req, res) => {
-            /* can look something like this
-                models.user.post() */
+      console.log("withincontroller post", req.body)
+            models.post(req.body)
+            res.send(req.body)
     }
   },
   favorites: {

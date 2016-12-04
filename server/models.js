@@ -1,17 +1,32 @@
 // Interact with database on the models functions here
 const Hotspot = require('../database/db').Hotspot
+const User = require('../database/db').User
 module.exports = {
   auth: {
     get: (data) => {
-      Rec.find((err, data) => {
-        
+      console.log("within model GET", data)
+      User.findOne({
+        username: data.username
+      },(err, user) => {
+        if (err) {
+          console.log("ERROR in GET MODEL", err)
+        }
+        console.log("line 21", user)
+        return user
       })
-
-            /*
-             Interact with database
-             */
     },
-    post: () => {
+    post: (req, res) => {
+      console.log(req, '*****')
+      console.log("within model POST", req.body)
+      User.create({
+        username: req.username,
+        password: req.password
+        }, (err, user) => {
+        if (err) {
+                console.log("Server-side POST error: ", err)
+            }
+            
+      })
             /*
              Interact with database
              */
