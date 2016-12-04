@@ -2,17 +2,19 @@
 const Hotspot = require('../database/db').Hotspot
 const User = require('../database/db').User
 module.exports = {
-  auth: {
+  users: {
     get: (data) => {
       console.log("within model GET", data)
       User.findOne({
-        username: data.username
+        username: data.username,
+        password: data.password
       },(err, user) => {
+        console.log("USER: ", user)
         if (err) {
           console.log("ERROR in GET MODEL", err)
         }
-        console.log("line 21", user)
-        return user
+          console.log("line 21", user)
+          return user
       })
     },
     post: (req, res) => {
@@ -25,11 +27,7 @@ module.exports = {
         if (err) {
                 console.log("Server-side POST error: ", err)
             }
-            
       })
-            /*
-             Interact with database
-             */
     }
   },
   favorites: {
