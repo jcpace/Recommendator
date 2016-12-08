@@ -8,14 +8,12 @@ module.exports = {
     get: (req, res) => {
       User
         .findOne({
-
           email: req.email,
           password: req.password
-
         })
         .exec((err, user) => {
           if (err) {
-            console.log('ERROR in MODEL GET: ', err)
+            throw err
           } else {
             res.json(user)
           }
@@ -29,9 +27,7 @@ module.exports = {
           password: req.password
         }, (err, user) => {
           if (err) {
-            console.log('ERROR in MODEL POST: ', err)
-          } else {
-
+            throw err
           }
         })
     }
@@ -53,18 +49,6 @@ module.exports = {
       })
     }
   },
-  comments: {
-    get: () => {
-            /*
-             Interact with database
-             */
-    },
-    post: () => {
-            /*
-             Interact with database
-             */
-    }
-  },
   hotspots: {
     get: (req, res) => {
       Hotspot.find().exec((err, data) => {
@@ -80,5 +64,4 @@ module.exports = {
       })
     }
   }
-
 }

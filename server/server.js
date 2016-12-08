@@ -8,10 +8,6 @@ const routes = require('./routes')
 const mongoose = require('mongoose')
 const cors = require('cors')
 const config = require('../config')
-const passport = require('passport')
-const flash = require('connect-flash')
-const cookieParser = require('cookie-parser')
-const session = require('express-session')
 
 // port settings
 let port = process.env.PORT || 3000
@@ -36,14 +32,6 @@ app.use(morgan('dev'))
 app.use(parser.urlencoded({extended: true}))
 app.use(parser.json())
 app.use(express.static('public'))
-
-app.use(cookieParser()) // read cookies (needed for auth)
-
-// required for passport
-app.use(session({ secret: 'secret' })) // session secret
-app.use(passport.initialize())
-app.use(passport.session()) // persistent login sessions
-app.use(flash()) // use connect-flash for flash messages stored in session
 
 // web socket protocol on localhost on port 3000
 server.listen(port, () => {

@@ -5,7 +5,7 @@ let placeholder, placeholder2
 const request = require('request')
 const API_KEY = require('../config').googleMapsApiKey
 module.exports = {
-    // Josh's endpoint is user
+    
   users: {
     get: (req, res) => {
       models.users.get(req.query, res)
@@ -25,16 +25,6 @@ module.exports = {
     },
     delete: (req, res) => {
       models.favorites.delete(req.body, res)
-    }
-  },
-  comments: {
-    get: (req, res) => {
-            /* can look something like this
-                models.user.get() */
-    },
-    post: (req, res) => {
-            /* can look something like this
-                models.user.post() */
     }
   },
   hotspots: {
@@ -97,16 +87,5 @@ module.exports = {
         res.send(resp)
       }).catch(err => { console.log(`getBusiness Yelp error: `, err) })
     }
-  },
-  maps: {
-    get: (req, res) => {
-            /* can look something like this
-                models.user.post() */
-    },
-    post: (req, res) => {
-            /* can look something like this
-                models.user.post() */
-    }
   }
-
 }

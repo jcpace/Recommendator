@@ -48,14 +48,15 @@ export default class SignUp extends React.Component {
 
     axios.post('/api/auth', signup)
       .then((response) => {
-        console.log(response, 'respnss')
         document.querySelector('#firstName').value = ''
         document.querySelector('#email').value = ''
         document.querySelector('#password').value = ''
         document.querySelector('#confirmPassword').value = ''
       })
       .catch((error) => {
-        console.log('Error in axios hotspot from POST: ', error)
+        if (err) {
+          throw err;
+        }
       })
   }
 

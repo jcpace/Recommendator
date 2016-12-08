@@ -26,17 +26,21 @@ export default class Login extends React.Component {
       .then((response) => {
         document.querySelector('#email').value = ''
         document.querySelector('#password').value = ''
+        // on successful response, input name and id into local storage for global app usage
         localStorage.setItem('User-Name', response.data.firstName)
         localStorage.setItem('User-Id', response.data._id)
         localStorage.setItem('UserLoggedIn', true)
+        // redirect to home
         browserHistory.push('/')
       })
       .catch((error) => {
+        //if response is null, user does not exist
         alert('Are you sure you entered that correctly? Please try again.')
       })
   }
 
   render () {
+    // material-ui styles
     const styles = {
       errorStyle: {
         color: orange500
