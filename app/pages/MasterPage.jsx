@@ -19,6 +19,7 @@ export default class MasterPage extends React.Component {
   }
   clearLocalStorage () {
     localStorage.clear()
+    // removes all local storage data
   }
 
   render () {
